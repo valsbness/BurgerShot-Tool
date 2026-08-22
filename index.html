@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07152f"><title>BurgerShot • Calculadora</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="space-bg">
+<div class="space-stars"></div>
+<header>
+  <button id="menu">☰</button>
+  <a class="brandLogo" href="#" aria-label="BurgerShot"><img src="assets/logo-burgershot-original.jpeg" alt="BurgerShot — Sabor que te dispara"></a>
+  <div class="headerText"><div class="brand">BurgerShot</div><div class="tag">SABOR QUE TE DISPARA</div></div>
+  <small>GTA V • FIVEM ROLEPLAY</small>
+</header>
+<aside id="side"><button id="close">×</button><div class="sideLogo"><img src="assets/logo-burgershot-original.jpeg" alt="BurgerShot"></div>
+<h2>BurgerShot</h2><p>SABOR QUE TE DISPARA</p>
+<button class="nav active" data-v="calc">🧮 Calculadora</button><button class="nav" data-v="combos">🍔 Combos 5×5</button><button class="nav" data-v="discounts">🏷️ Descuentos</button><button class="nav" data-v="convenios">🤝 Convenios</button><button class="nav" data-v="weekly">🔒 Pago semanal</button><button class="nav" data-v="menuv">📋 Ver menú</button></aside><div id="shade"></div>
+<main>
+<section id="calc" class="view active"><div class="hero"><div><label>★ BURGERSHOT • CAJA / PEDIDOS ★</label><h1>Calculadora de pedidos</h1><p>Precios oficiales del menú y descuentos calculados automáticamente.</p></div><button class="red" id="clear">🧹 Limpiar todo</button></div>
+<div class="special"><div><strong>CAJITA MÉDICOS / POLICÍAS</strong><span>Precio especial: $250 por unidad</span></div><button id="specialBtn">+ Agregar 1</button></div>
+<div class="card"><div class="thead"><span>PRODUCTO</span><span>CANT.</span><span>PRECIO</span><span>TOTAL</span></div><div id="rows"></div>
+<div class="sub"><span>SUBTOTAL</span><b id="sub">$0</b></div><div class="discount"><b>DESCUENTO</b><div><label><input type="radio" name="disc" value="0" checked> Sin descuento</label><label><input type="radio" name="disc" value="5"> 5%</label><label><input type="radio" name="disc" value="10"> 10%</label></div></div>
+<div class="total"><span>TOTAL A PAGAR</span><b id="total">$0</b></div><div class="actions"><button id="copy">📋 COPIAR MONTO</button><button id="reset">REINICIAR</button></div></div>
+<div class="quick"><article><b>5%</b><span>Total con 5% de descuento</span><strong id="q5">$0</strong></article><article><b>10%</b><span>Total con 10% de descuento</span><strong id="q10">$0</strong></article><article class="gold"><b>$250</b><span>Cajita médicos / policías</span><strong id="sq">0 unidades</strong></article></div></section>
+
+<section id="combos" class="view"><div class="hero"><div><label>★ COMBO 5 × 5 • BURGERSHOT ★</label><h1>Combo 5 × 5</h1><p>Elige una sola comida para la caja. La bebida ya viene incluida.</p></div></div>
+<div class="comboInfo"><strong>🚀 UNA SOLA CAJA DE COMBO</strong><span>Selecciona qué comida quiere el cliente. <b>5 × 5 = $1,200</b>. Los cuatro cuadros son opciones, no cuatro combos que se suman.</span></div>
+<div class="comboGrid comboChoiceGrid" id="comboFoodChoices">
+<button class="comboChoiceCard selected" data-food="Hamburguesas"><span class="comboChoiceEmoji">🍔</span><strong>HAMBURGUESAS</strong><small>SELECCIONAR</small></button>
+<button class="comboChoiceCard" data-food="Nuggets"><span class="comboChoiceEmoji">🍗</span><strong>NUGGETS</strong><small>SELECCIONAR</small></button>
+<button class="comboChoiceCard" data-food="Alitas"><span class="comboChoiceEmoji">🍗</span><strong>ALITAS</strong><small>SELECCIONAR</small></button>
+<button class="comboChoiceCard" data-food="Burritos"><span class="comboChoiceEmoji">🌯</span><strong>BURRITOS</strong><small>SELECCIONAR</small></button>
+</div>
+<div class="comboSingle card"><div class="comboSingleHead"><div><span>COMBO SELECCIONADO</span><h2 id="comboBoxTitle">🍔 Hamburguesas • 5 × 5</h2></div><div class="comboBadge">🥤 BEBIDA INCLUIDA</div></div><div class="comboSingleBody"><div class="comboSelectionLine"><div><span>COMIDA ELEGIDA</span><b id="comboChoiceText">🍔 Hamburguesas</b></div><label>CANTIDAD<input id="comboQty" type="number" min="5" step="1" value="5"></label></div><div class="comboIncluded"><span>🥤 BEBIDA INCLUIDA AUTOMÁTICAMENTE</span><b id="comboDrinkText">5 × 5</b><small>No necesitas modificar la cantidad de bebida.</small></div><div class="comboTotal"><span>TOTAL NORMAL</span><b id="comboGrandTotal">$1,200</b></div></div></div>
+<div class="card comboGrand"><div><span>TOTAL NORMAL</span><b id="comboNormalTotal">$1,200</b></div><div><span>TOTAL CON 5% DE DESCUENTO</span><b id="comboDisc5">$1,140</b></div><div><span>TOTAL CON 10% DE DESCUENTO</span><b id="comboDisc10">$1,080</b></div></div>
+<div class="comboFuture"><strong>⭐ Próximamente</strong><span>Cuando haya exceso de una comida específica, podremos activar descuentos especiales para esa caja (por ejemplo, alitas), sin cambiar la estructura del combo.</span></div></section>
+
+<section id="discounts" class="view"><div class="hero"><div><label>★ PRECIOS ESPECIALES ★</label><h1>Descuentos</h1><p>Los descuentos también están disponibles directamente en la calculadora y en el resumen de combos.</p></div></div>
+<div class="policy"><article><b>5%</b><h2>Descuento 5%</h2><p>Selecciona 5% para obtener el total rebajado automáticamente.</p></article><article class="blue"><b>10%</b><h2>Descuento 10%</h2><p>Selecciona 10% para obtener el total rebajado automáticamente.</p></article><article class="yellow"><b>$250</b><h2>Cajita especial</h2><p>Médicos y policías: la cajita se vende a <strong>$250</strong>.</p></article></div></section>
+
+<section id="convenios" class="view"><div class="hero"><div><label>★ BURGERSHOT BUSINESS ★</label><h1>Convenios</h1><p>Todos pueden consultar. Solo personal autorizado puede agregar o eliminar.</p></div></div>
+<div class="card"><div class="convHead"><span>NEGOCIO / ORGANIZACIÓN</span><span>BENEFICIO</span></div><div id="convList"></div><div class="add"><input id="convName" placeholder="Nombre del convenio"><select id="convBenefit"><option value="5">5% de descuento</option><option value="10">10% de descuento</option><option value="special">Cajita a $250</option></select><button id="addConv">🔒 AGREGAR</button></div></div></section>
+
+<section id="weekly" class="view"><div class="hero"><div><label>★ BURGERSHOT • ADMINISTRACIÓN ★</label><h1>Pago semanal 🔒</h1><p>Área exclusiva para jefes. 40% de facturas + 100% de propinas.</p></div><button class="red" id="clearWeekly">🧹 LIMPIAR SEMANA</button></div>
+<div class="weeklyRules"><div><strong>40%</strong><span>de las facturas</span></div><div><strong>100%</strong><span>de las propinas</span></div><div><strong>FÓRMULA</strong><span>40% facturas + propinas</span></div></div>
+<div id="workerList" class="workerList"></div><div class="card weeklyAdd"><input id="workerName" placeholder="Nombre del nuevo trabajador"><button id="addWorker">+ AGREGAR CARPETA</button></div>
+<div class="grand"><div><span>TOTAL FACTURADO POR TODOS</span><b id="wFacturas">$0</b></div><div><span>40% TOTAL A PAGAR</span><b id="wForty">$0</b></div><div><span>PROPINAS DE TODOS</span><b id="wTips">$0</b></div><div><span>TOTAL A PAGAR A TODOS</span><b id="wPay">$0</b></div></div></section>
+
+<section id="workerDetail" class="view"><div class="hero"><div><label>★ CARPETA DEL TRABAJADOR ★</label><h1 id="detailName">Trabajador</h1><p>Hasta 100 facturas y 100 propinas. Todo se suma automáticamente.</p></div><button class="backBtn" id="backWeekly">← VOLVER A PAGOS</button></div>
+<div class="detailSummary"><article><span>FACTURAS</span><b id="dFacturas">$0</b></article><article><span>40% DE FACTURAS</span><b id="dForty">$0</b></article><article><span>PROPINAS (100%)</span><b id="dTips">$0</b></article><article class="pay"><span>TOTAL A PAGAR</span><b id="dPay">$0</b></article></div>
+<div class="card invoiceCard"><div class="detailHead"><h2>📁 Facturas</h2><button id="addInvoice">+ AGREGAR FACTURA</button></div><div class="invoiceTitles"><span>#</span><span>MONTO DE FACTURA</span><span>ACCIÓN</span></div><div id="invoiceList"></div><div class="detailFoot"><span>TOTAL DE FACTURAS</span><b id="dInvoiceTotal">$0</b></div></div>
+<div class="card tipsCard"><div class="detailHead"><h2>💵 Propinas</h2><button id="addTip">+ AGREGAR PROPINA</button></div><div class="invoiceTitles"><span>#</span><span>MONTO DE PROPINA</span><span>ACCIÓN</span></div><div id="tipList"></div><div class="detailFoot"><span>TOTAL DE PROPINAS (100%)</span><b id="dTipTotal">$0</b></div></div></section>
+
+<section id="menuv" class="view"><div class="hero"><div><label>★ MENÚ OFICIAL ★</label><h1>Precios BurgerShot</h1><p>Precios utilizados por la calculadora.</p></div></div><div class="menuPriceGrid" id="menuPriceGrid"></div><div class="menuNote">★ Los precios base están tomados del README original del proyecto. Los combos oficiales son 5×5 $1,200; 25×25 $6,000; 50×50 $12,000; 100×100 $24,000.</div></section>
+</main>
+<footer><b>BurgerShot</b> • SABOR QUE TE DISPARA <small>GTA V • FIVEM ROLEPLAY</small></footer>
+<div id="toast"></div>
+<div id="pinModal" class="modal"><div class="pinBox"><button id="pinClose" class="pinClose">×</button><div class="lockIcon">🔐</div><h2 id="pinTitle">Área restringida</h2><p id="pinText"></p><input id="pinInput" type="password" inputmode="numeric" maxlength="12" placeholder="Código / PIN"><div id="pinError"></div><div class="pinActions"><button id="pinCancel">CANCELAR</button><button id="pinEnter">ENTRAR</button></div></div></div>
+<script src="script.js"></script>
+</body></html>
