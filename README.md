@@ -22,8 +22,8 @@ Calculadora y administrador de BurgerShot para GTA V / FiveM Roleplay.
 Hamburguesa 200; Cubo de Alitas 200; Burrito 200; Nuggets 200; Cola-Shot 100; Helado 100; Papitas Fritas 100; Cajita Infantil 400; Cajita Médicos/Policías 250.
 
 ## PIN actuales
-- Pago semanal: `2580`
-- Administración de convenios: `7744`
+- Pago semanal: `****`
+- Administración de convenios: `****`
 
 Cámbialos en `script.js` en `ACCESS_CODES`.
 
