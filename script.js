@@ -1063,4 +1063,4 @@ loadCalc();
 loadWorkers();
 loadConvenios();
 
-startRealtime();
+// startRealtime();
