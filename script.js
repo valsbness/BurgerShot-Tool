@@ -1,6 +1,14 @@
 const products=[['Comida','Hamburguesa',200],['Comida','Cubo de Alitas',200],['Comida','Burrito',200],['Comida','Nuggets',200],['Bebidas','Cola-Shot',100],['Extras','Helado',100],['Extras','Papitas Fritas',100],['Cajitas','Cajita Infantil',400],['Cajitas','Cajita Médicos / Policías',250]];
 const comboTypes=[['Hamburguesa','hamburguesa','🍔'],['Nuggets','nuggets','🍗'],['Alitas','cubo de alitas','🍗'],['Burrito','burrito','🌯']],COMBO_PRICE_PER_5=1200;
 const $=x=>document.getElementById(x),money=n=>'$'+Math.round(Number(n)||0).toLocaleString('en-US');
+const SUPABASE_URL='https://cibmabtwcxdpczyexbap.supabase.co';
+
+const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZXMiLCJyZWYiOiJjaWJtYWJ0d2N4ZHBjenlleHhiYXAiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTc4NzQyMzc4OSwiZXhwIjoyMTAyOTk5Nzg5fQ.w1YxLpRzUT1YmR8O5qETBk4DFtqshJUbg9ND4sfJpQw';
+
+const supabaseClient=window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
 function render(){let root=$('rows'),last='';root.innerHTML='';products.forEach((p,i)=>{if(p[0]!==last){root.innerHTML+=`<div class="cat">${p[0]}</div>`;last=p[0]}let r=document.createElement('div');r.className='row';r.dataset.i=i;r.innerHTML=`<span class="pname">${p[1]}</span><span><input type="number" min="0" value="0"></span><span class="price">${money(p[2])}</span><span class="ptotal">$0</span>`;r.querySelector('input').oninput=update;root.appendChild(r)})}
 function update(){let sub=0;document.querySelectorAll('.row').forEach(r=>{let p=products[r.dataset.i],q=Math.max(0,+r.querySelector('input').value||0),t=q*p[2];sub+=t;r.querySelector('.ptotal').textContent=money(t)});$('sub').textContent=money(sub);let d=+document.querySelector('input[name=disc]:checked').value,total=sub*(1-d/100);$('total').textContent=money(total);$('q5').textContent=money(sub*.95);$('q10').textContent=money(sub*.9);$('sq').textContent=(+document.querySelector('.row[data-i="8"] input').value||0)+' unidades';saveCalc()}
 function saveCalc(){let q={d:+document.querySelector('input[name=disc]:checked').value,items:{}};document.querySelectorAll('.row').forEach(r=>q.items[r.dataset.i]=r.querySelector('input').value);localStorage.setItem('bsCalc',JSON.stringify(q))}
